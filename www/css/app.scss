@@ -1,0 +1,35 @@
+p {
+  margin-bottom: 0.3rem;
+}
+.hide {
+  display: none;
+}
+
+.search-country {
+  background: #adb5bd;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.country {
+  margin-top: 20px;
+}
+.loading {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding-top: 50vh;
+  background: rgba(255,255,255,.5)
+}
+
+footer {
+  width: 100%;
+  border-top: 1px solid #ccc;
+  padding: 20px;
+  .check {
+    float: left;
+  }
+}
