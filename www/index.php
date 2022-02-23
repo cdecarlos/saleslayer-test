@@ -30,8 +30,10 @@
     <script src="js/class/ApiPhp.js"></script>
     <script src="js/class/CountryJSON.js"></script>
     <script src="js/class/LocalStorage.js"></script>
+
     <script src="js/lib/common.js"></script>
     <script src="js/lib/libVanilla.js"></script>
+
     <script src="js/app.js"></script>
   </body>
 </html>

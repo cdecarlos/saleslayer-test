@@ -262,10 +262,10 @@ function saveAllCountryDataPhp() {
  */
 function disableAllOptions() {
   var apiConfig = $(ApiConfigSelector)
-  if (apiConfig.length > 0 && apiConfig.checked) apiConfig.attr('checked', false)
+  if (apiConfig.length > 0 && apiConfig.attr('checked') == 'checked') apiConfig.attr('checked', false)
 
   var phpConfig = $(PhpConfigSelector)
-  if (phpConfig.length > 0 && phpConfig.checked) phpConfig.attr('checked', false)
+  if (phpConfig.length > 0 && phpConfig.attr('checked') == 'checked') phpConfig.attr('checked', false)
 }
 
 /**
