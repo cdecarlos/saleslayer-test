@@ -1,21 +1,4 @@
 /**
- * Selector similar jQuery
- * @param {string} selector selector (.class or #id)
- * @returns {DOM[]} Array elements
- * @returns {DOM} Element
- * @returns {false} Not found
- */
-// function s(selector) {
-//   var elements = document.querySelectorAll (selector)
-//   if (elements.length === 1)
-//     return elements[0]
-//   if (elements.length === 0)
-//     return false
-
-//   return elements
-// }
-
-/**
  * Show country info block removing hide class
  * @returns {void}
  */
