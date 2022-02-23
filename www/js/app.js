@@ -3,7 +3,6 @@ var store = null
 var isApi = false
 var isPhp = false
 
-var debug = true // TODO delete
 var loadedInfo = false
 
 var ApiConfigSelector = '#ApiConfig'
