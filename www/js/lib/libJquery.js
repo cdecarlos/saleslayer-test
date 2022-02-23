@@ -206,7 +206,9 @@ function addListenerInput(input) {
   })
 }
 
-// TODO Docs
+/**
+ * Show modal error
+ */
 function showModalError() {
   if (!loadedInfo) {
     Swal.fire({
@@ -218,7 +220,9 @@ function showModalError() {
   hideLoading()
 }
 
-// TODO Docs
+/**
+ * Save all country data
+ */
 function saveAllCountryData() {
   var countries = {}
   var countriesPromise = Api.getAllCountries()
@@ -231,4 +235,79 @@ function saveAllCountryData() {
 
     LocalStorage.setJson('countries', countries)
   })
+}
+/**
+ * Save all country data on php
+ */
+function saveAllCountryDataPhp() {
+  var countries = {}
+  var countriesPromise = Api.getAllCountries()
+  countriesPromise.then(function (response) {
+    response.forEach(el => {
+      if (el.name.common) {
+        countries[el.name.common] = el
+      }
+    })
+
+    Object.entries(countries).forEach(entry => {
+      const [name, json] = entry;
+
+      ApiPhp.saveCountry(name, json);
+    })
+  })
+}
+
+/**
+ * Disable all options
+ */
+function disableAllOptions() {
+  var apiConfig = $(ApiConfigSelector)
+  if (apiConfig.length > 0 && apiConfig.checked) apiConfig.attr('checked', false)
+
+  var phpConfig = $(PhpConfigSelector)
+  if (phpConfig.length > 0 && phpConfig.checked) phpConfig.attr('checked', false)
+}
+
+/**
+ * Enable this option
+ * @param {InputDOM} value DOM call event
+ */
+function enableOption(value) {
+  disableAllOptions()
+  value.checked = true
+
+  switch (value.id) {
+    case 'ApiConfig':
+      saveAllCountryData()
+      LocalStorage.set('store', 'Api')
+      isApi = true
+      break;
+    case 'PHPConfig':
+      saveAllCountryDataPhp()
+      LocalStorage.set('store', 'Php')
+      isPhp = true
+      break;
+  }
+}
+
+/**
+ * Init checkbox option
+ */
+function initCheckboxOption() {
+  var apiConfig = $(ApiConfigSelector)
+  var phpConfig = $(PhpConfigSelector)
+  if (apiConfig.length > 0 && phpConfig.length > 0) {
+    disableAllOptions()
+    var store = LocalStorage.get('store')
+    switch (store) {
+      case 'Api':
+        idApi = true
+        apiConfig.attr('checked', true)
+        break;
+      case 'Php':
+        idPhp = true
+        phpConfig.attr('checked', true)
+        break;
+    }
+  }
 }

@@ -240,7 +240,9 @@ function addListenerInput(input) {
   })
 }
 
-// TODO Docs
+/**
+ * Show modal error
+ */
 function showModalError() {
   if (!loadedInfo) {
     Swal.fire({
@@ -252,7 +254,9 @@ function showModalError() {
   hideLoading()
 }
 
-// TODO Docs
+/**
+ * Save all country data
+ */
 function saveAllCountryData() {
   var countries = {}
   var countriesPromise = Api.getAllCountries()
@@ -267,7 +271,9 @@ function saveAllCountryData() {
   })
 }
 
-// TODO Docs
+/**
+ * Save all country data on php
+ */
 function saveAllCountryDataPhp() {
   var countries = {}
   var countriesPromise = Api.getAllCountries()
@@ -286,19 +292,21 @@ function saveAllCountryDataPhp() {
   })
 }
 
-// TODO docs
+/**
+ * Disable all options
+ */
 function disableAllOptions() {
   var apiConfig = s(ApiConfigSelector)
   if (apiConfig && apiConfig.checked) apiConfig.checked = false
-  // isApi = false
 
   var phpConfig = s(PhpConfigSelector)
   if (phpConfig && phpConfig.checked) phpConfig.checked = false
-  // isPhp = false
-
 }
 
-// TODO docs
+/**
+ * Enable this option
+ * @param {InputDOM} value DOM call event
+ */
 function enableOption(value) {
   disableAllOptions()
   value.checked = true
@@ -317,7 +325,9 @@ function enableOption(value) {
   }
 }
 
-// TODO docs
+/**
+ * Init checkbox option
+ */
 function initCheckboxOption() {
   var apiConfig = s(ApiConfigSelector)
   var phpConfig = s(PhpConfigSelector)
