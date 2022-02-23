@@ -5,6 +5,7 @@ Test to Sales Layer
 ## Instrucciones de uso
 
 - Run docker with ```sh docker-compose up -d```
+- Access phpmyadmin (localhost:8090) wiht user and pass (root/root), create database called CountryApi and import sql file /db/CountryApi.sql
 
 ## Versiones
 
